@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const morgan = require('morgan')
 
 // Initiliazations
 const app = express();
@@ -25,6 +26,7 @@ app.set('view engine', '.hbs');
 
 // Middlewares
 app.use(express.urlencoded({extended: false}));
+app.use(morgan('dev'))
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'mysecretapp',
