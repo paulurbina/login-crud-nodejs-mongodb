@@ -1,11 +1,11 @@
 FROM node:12
 
-WORKDIR /app
-
 COPY package*.json ./
+
+WORKDIR /app
 
 RUN npm install
 
 COPY . .
 
-CMD [ "npm", "start" ]
+CMD [ "dev", "nodemon", "src/index" ]

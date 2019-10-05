@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const morgan = require('morgan')
+const bodyParser = require('body-parser')
 
 // Initiliazations
 const app = express();
@@ -13,7 +14,7 @@ require('./database');
 require('./config/passport');
 
 // Settings
-app.set('port', process.env.PORT || 4000);
+app.set('port', 2323);
 app.set('views', path.join(__dirname, '/views'));
 app.engine('.hbs', exhbs({
     defaultLayout:  'main',
@@ -27,6 +28,7 @@ app.set('view engine', '.hbs');
 // Middlewares
 app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'))
+app.use(bodyParser.json())
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'mysecretapp',
@@ -36,6 +38,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+// hola que hacew
 
 // Global variables 
 app.use((req, res, next) => {
