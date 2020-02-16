@@ -1,11 +1,15 @@
-FROM node:12
+FROM node:latest
+
+RUN mkdir -p /usr/src/app
+
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-WORKDIR /app
-
-RUN npm install
+RUN npm i
 
 COPY . .
 
-CMD [ "dev", "nodemon", "src/index" ]
+EXPOSE 2323
+
+CMD [ "npm", "start" ]
