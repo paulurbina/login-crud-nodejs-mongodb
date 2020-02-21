@@ -1,18 +1,18 @@
 version: "3"
 services:
-    mongo:
-        container_name: mongo
-        image: mongo
-        volumes: 
-            - /data/db:/var/lib/mongodb/data/db
-        ports: 
-            - "27017:27017"
     web:
-        image: node-red-social
-        container_name: app
+        image: red-social
         build: .
+        command: node src/index.js
         ports: 
             - "2323:2323"
-        restart: on-failure 
+        volumes: 
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
         depends_on: 
-            - mongo
+            - "mongo"
+    mongo:
+        image: mongo
+        ports: 
+            - "27017:27017"
+         
