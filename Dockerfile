@@ -1,10 +1,10 @@
-FROM node:latest
+FROM node
 
 WORKDIR /usr/src/app
 
-COPY package*.json .
+COPY package*.json ./
 
-RUN npm i
+RUN npm install
 
 COPY . .
 

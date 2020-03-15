@@ -1,18 +1,16 @@
-version: "3"
+version: "2"
 services:
-    web:
-        image: red-social
-        build: .
-        command: node src/index.js
-        ports: 
-            - "2323:2323"
-        volumes: 
-            - .:/usr/src/app
-            - /usr/src/app/node_modules
-        depends_on: 
-            - "mongo"
-    mongo:
-        image: mongo
-        ports: 
-            - "27017:27017"
-         
+  web:
+    build: .
+        #command: node src/index.js
+    ports: 
+      - "2323:2323"
+        #volumes: 
+         #   - .:/usr/src/app
+          #  - /usr/src/app/node_modules
+    depends_on: 
+      - mongo
+  mongo:
+    image: mongo
+    ports: 
+      - "27022:27017"
