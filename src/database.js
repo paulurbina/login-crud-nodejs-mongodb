@@ -2,9 +2,8 @@ const mongoose = require('mongoose');
 const { config } = require('./config/index')
 
 const DBCONNECT = config.dbConnect
-const MONGO_URI = `${DBCONNECT}`
 
-mongoose.connect('mongodb://mongo:27022/redSocial', {
+mongoose.connect('mongodb://mongodata:27017/redSocial', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: false
