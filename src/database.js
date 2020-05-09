@@ -3,10 +3,11 @@ const { config } = require('./config/index')
 
 const DBCONNECT = config.dbConnect
 
-mongoose.connect('mongodb://mongodata:27017/redSocial', {
-    useCreateIndex: true,
+const DOCKER_MONGO = 'mongodb://mongodata:27017/redSocial'
+
+mongoose.connect(DBCONNECT, {
     useNewUrlParser: true,
-    useFindAndModify: false
+    useUnifiedTopology: true
 })
-    .then(db => console.log('db is connected'))
-    .catch(err => console.log(err));
+    .then(db => console.info('db is connected'))
+    .catch(err => console.info(err));
