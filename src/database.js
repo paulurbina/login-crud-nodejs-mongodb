@@ -3,9 +3,10 @@ const { config } = require('./config/index')
 
 const DBCONNECT = config.dbConnect
 
-const DOCKER_MONGO = 'mongodb://mongodata:27017/redSocial'
+// const DOCKER_MONGO = 'mongodb://mongo/redSocial'
+const DOCKER_MONGO = process.env.DOCKER_MONGO
 
-mongoose.connect(DBCONNECT, {
+mongoose.connect(DOCKER_MONGO, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

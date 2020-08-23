@@ -1,4 +1,4 @@
-FROM node
+FROM node:14
 
 RUN mkdir -p /usr/src/app
 
@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 2323
 
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "dev" ]
