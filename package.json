@@ -1,14 +1,18 @@
 {
   "name": "login-crud-nodejs",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple login and crud using settings nodejs, mongodb",
   "main": "index.js",
+  "engines": {
+    "node": "10",
+    "npm": "6.14.6"
+  },
   "scripts": {
     "start": "node src/index",
     "dev": "nodemon src/index"
   },
   "keywords": [],
-  "author": "",
+  "author": "Paul Antony Urbina Loayza",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
