@@ -1,5 +1,7 @@
 'use strict';
 
+// require('dotenv').config()
+
 const express = require('express');
 const path = require('path');
 const exhbs = require('express-handlebars')
@@ -16,7 +18,7 @@ require('./database');
 require('./config/passport');
 
 // Settings
-app.set('port', process.env.PORT || 2323);
+app.set('port', process.env.PORT || 8080);
 app.set('views', path.join(__dirname, '/views'));
 app.engine('.hbs', exhbs({
     defaultLayout:  'main',
@@ -40,7 +42,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-// hola que hacew
 
 // Global variables 
 app.use((req, res, next) => {
