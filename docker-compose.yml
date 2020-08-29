@@ -1,14 +1,15 @@
 version: "3"
-
 services: 
   web:
+    build: .
     container_name: crud-app
     restart: always
-    build: .
     ports: 
-      - "2323:3000"
-    links: 
+      - "5000:5000"
+    depends_on:
       - mongo
+    env_file:
+      - web-variables.env
     volumes: 
       - .:/usr/src/app
     networks:
@@ -17,31 +18,12 @@ services:
   mongo:
     container_name: mydatabase
     image: mongo
+    restart: unless-stopped
     ports: 
-      - "27018:27017"
+      - "27017:27017"
     networks:
       - login-crud-app
 
 networks: 
   login-crud-app:
     driver: bridge
-
-# version: "3"
-# services:
-#   web:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     ports: 
-#       - "2323:2323"
-#     networks: 
-#       - login-crud-app
-
-#   mongodata:
-#     image: mongo
-#     networks: 
-#       - login-crud-app
-
-# networks: 
-#   login-crud-app:
-#     driver: bridge

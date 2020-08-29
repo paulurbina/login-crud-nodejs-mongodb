@@ -1,7 +1,5 @@
 'use strict';
 
-// require('dotenv').config()
-
 const express = require('express');
 const path = require('path');
 const exhbs = require('express-handlebars')
@@ -18,7 +16,7 @@ require('./database');
 require('./config/passport');
 
 // Settings
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, '/views'));
 app.engine('.hbs', exhbs({
     defaultLayout:  'main',
@@ -57,11 +55,8 @@ app.use(require('./routes/index'));
 app.use(require('./routes/users'));
 app.use(require('./routes/notes'));
 
-
-
 // Static Files
 app.use(express.static(path.join(__dirname, '/public')));
-
 
 // Server is listenning
 app.listen(app.get('port'), ()=> {

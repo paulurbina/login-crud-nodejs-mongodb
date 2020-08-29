@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
 const { config } = require('./config/index')
 
-const { dbConnect, dockerMongo } = config
+const { dockerMongo, dbConnect } = config
 
-// const DOCKER_MONGO = 'mongodb://mongo/redSocial'
-// const DOCKER_MONGO = process.env.DOCKER_MONGO
-
-mongoose.connect(dbConnect || dockerMongo , {
+mongoose.connect(dockerMongo || dbConnect , {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
