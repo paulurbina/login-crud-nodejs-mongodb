@@ -11,6 +11,9 @@
   "keywords": [],
   "author": "Paul Antony Urbina Loayza",
   "license": "ISC",
+  "engines": {
+    "node": "12.x.x"
+  },
   "dependencies": {
     "@google-cloud/compute": "^2.1.0",
     "bcryptjs": "^2.4.3",
