@@ -9,7 +9,7 @@ services:
     depends_on:
       - mongo
     env_file:
-      - web-variables.env
+      - .env
     volumes: 
       - .:/usr/src/app
     networks:

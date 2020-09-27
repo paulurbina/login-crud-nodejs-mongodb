@@ -3,7 +3,7 @@ const { config } = require('./config/index')
 
 const { dockerMongo, dbConnect } = config
 
-mongoose.connect(dbConnect , {
+mongoose.connect(dockerMongo , {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
