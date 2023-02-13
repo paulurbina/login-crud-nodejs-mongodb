@@ -11,5 +11,5 @@ COPY . .
 
 EXPOSE 5000
 
-CMD [ "npx", "nodemon", "src/index" ]
-# CMD [ "npm", "start" ]
+# CMD [ "npx", "nodemon", "src/index" ]
+CMD [ "npm", "start" ]
