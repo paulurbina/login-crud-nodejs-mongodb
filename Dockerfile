@@ -1,6 +1,7 @@
-FROM node:12.18.3-alpine3.9
+# FROM node:12.18.3-alpine3.9
+FROM node:14
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -10,4 +11,5 @@ COPY . .
 
 EXPOSE 5000
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "npx", "nodemon", "src/index" ]
+# CMD [ "npm", "start" ]
