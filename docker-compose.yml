@@ -1,29 +1,35 @@
 version: "3"
-services: 
-  web:
+services:
+  app:
     build: .
-    container_name: crud-app
-    restart: always
-    ports: 
+    container_name: web
+    ports:
       - "5000:5000"
     depends_on:
-      - mongo
-    env_file:
-      - .env
-    volumes: 
-      - .:/usr/src/app
+      - db
     networks:
-      - login-crud-app
+      - app-network
+    environment:
+      - MONGO_URL=mongodb://db:27017/redSocial
 
-  mongo:
-    container_name: mydatabase
-    image: mongo
-    restart: unless-stopped
-    ports: 
+  db:
+    image: mongo:4.2
+    container_name: database
+    ports:
       - "27017:27017"
+    volumes:
+      - db-data:/data/db
     networks:
-      - login-crud-app
+      - app-network
 
-networks: 
-  login-crud-app:
+volumes:
+  db-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /db/data
+      o: bind
+
+networks:
+  app-network:
     driver: bridge
